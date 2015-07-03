@@ -3,6 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/gottfrois/image_info/badges/gpa.svg)](https://codeclimate.com/github/gottfrois/image_info)
 [![Build Status](https://travis-ci.org/gottfrois/image_info.svg)](https://travis-ci.org/gottfrois/image_info)
 [![Dependency Status](https://gemnasium.com/gottfrois/image_info.svg)](https://gemnasium.com/gottfrois/image_info)
+[![Gem Version](https://badge.fury.io/rb/image_info.svg)](http://badge.fury.io/rb/image_info)
 
 ImageInfo finds the size and type of a single or multiple images from the web by fetching as little as needed in batches.
 
