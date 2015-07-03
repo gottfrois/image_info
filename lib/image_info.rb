@@ -16,8 +16,8 @@ module ImageInfo
   #    => [:png, :jpeg]
   #
   # @return [Array<ImageInfo::Image>]
-  def self.from(urls)
-    ::ImageInfo::Processor.new(urls).process
+  def self.from(urls, options = { max_concurrency: config.max_concurrency })
+    ::ImageInfo::Processor.new(urls, options).process
   end
 
 end

@@ -7,10 +7,11 @@ require 'image_info/request_handler'
 module ImageInfo
   class Processor
 
-    attr_reader :images
+    attr_reader :images, :options
 
-    def initialize(urls)
-      @images = Array(urls).map { |uri| ::ImageInfo::Image.new(uri) }.keep_if(&:valid?)
+    def initialize(urls, options = {})
+      @images  = Array(urls).map { |uri| ::ImageInfo::Image.new(uri) }.keep_if(&:valid?)
+      @options = options
     end
 
     def process
@@ -23,11 +24,7 @@ module ImageInfo
     private
 
     def hydra
-      @hydra ||= ::Typhoeus::Hydra.new(max_concurrency: max_concurrency)
-    end
-
-    def max_concurrency
-      ::ImageInfo.config.max_concurrency
+      @hydra ||= ::Typhoeus::Hydra.new(max_concurrency: options[:max_concurrency])
     end
 
   end
