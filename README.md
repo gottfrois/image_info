@@ -35,6 +35,10 @@ For a single image:
 
 ```ruby
 image = ImageInfo.from('http://foo.com/foo.png').first
+image.width
+ => 256
+image.height
+ => 256
 image.size
  => [256, 256]
 image.type

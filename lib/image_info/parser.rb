@@ -6,8 +6,8 @@ module ImageInfo
     attr_reader :image, :bytes, :parser
 
     def initialize(image, data)
-      @image      = image
-      @bytes      = data.bytes
+      @image  = image
+      @bytes  = data.bytes
       @parser = ::ImageSize.new(data)
     end
 
@@ -19,7 +19,8 @@ module ImageInfo
     private
 
     def set_image_size
-      image.size = [parser.width, parser.height]
+      image.width  = parser.width
+      image.height = parser.height
     end
 
     def set_image_type

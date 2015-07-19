@@ -4,11 +4,14 @@ module ImageInfo
   class Image
 
     attr_reader :uri
-    attr_accessor :size, :type
+    attr_accessor :width, :height, :type
 
     def initialize(uri)
-      @uri  = ::URI.parse(uri.to_s)
-      @size = []
+      @uri = ::URI.parse(uri.to_s)
+    end
+
+    def size
+      [width, height].compact
     end
 
     def valid?
