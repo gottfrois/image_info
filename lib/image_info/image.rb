@@ -7,7 +7,7 @@ module ImageInfo
     attr_accessor :width, :height, :type
 
     def initialize(uri)
-      @uri = ::URI.parse(uri.to_s)
+      @uri = ::URI.parse(::URI.encode(uri.to_s))
     end
 
     def size
