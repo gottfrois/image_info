@@ -61,9 +61,9 @@ describe ImageInfo::Parser do
 
       it { expect { call }.not_to change { image.type } }
       it { expect { call }.not_to change { image.size } }
+      it { expect(call).to be_falsy }
 
     end
-    
     
     context 'partial image with enough data' do
 
@@ -71,6 +71,7 @@ describe ImageInfo::Parser do
 
       it { expect { call }.to change { image.type }.to eq(:jpeg) }
       it { expect { call }.to change { image.size }.to eq([775, 525]) }
+      it { expect(call).to be_truthy }
 
     end
 

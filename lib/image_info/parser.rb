@@ -11,7 +11,7 @@ module ImageInfo
     end
 
     def call
-      return unless parser
+      return false unless parser
       set_image_size
       set_image_type
     end
