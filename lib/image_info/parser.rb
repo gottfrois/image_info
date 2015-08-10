@@ -3,15 +3,15 @@ require 'image_size'
 module ImageInfo
   class Parser
 
-    attr_reader :image, :bytes, :parser
+    attr_reader :image
 
     def initialize(image, data)
-      @image  = image
-      @bytes  = data.bytes
-      @parser = ::ImageSize.new(data)
+      @image = image
+      @data = data
     end
 
     def call
+      return unless parser
       set_image_size
       set_image_type
     end
@@ -26,6 +26,12 @@ module ImageInfo
     def set_image_type
       image.type = parser.format
     end
-
+    
+    private
+    
+    def parser
+      @parser ||= ::ImageSize.new(@data) 
+    rescue ImageSize::FormatError
+    end
   end
 end
