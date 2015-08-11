@@ -5,13 +5,14 @@
 [![Dependency Status](https://gemnasium.com/gottfrois/image_info.svg)](https://gemnasium.com/gottfrois/image_info)
 [![Gem Version](https://badge.fury.io/rb/image_info.svg)](http://badge.fury.io/rb/image_info)
 
-ImageInfo finds the size and type of a single or multiple images from the web by fetching as little as needed in batches.
+ImageInfo finds the size and type of a single or multiple images from the web by fetching as little data as needed (partial image) in batches.
 
 ## Why
 
 In [LinkThumbnailer](https://github.com/gottfrois/link_thumbnailer) I needed to find images sizes not only for one image.
 A well known gem like FastImage was not enough so I decided to build my own.
-The gem use [typhoeus](https://github.com/typhoeus/typhoeus) under the hood to perform http requests in parallel.
+The gem use [typhoeus](https://github.com/typhoeus/typhoeus)'s parallel requests and stream capability under the hood to
+get images.
 
 ## Installation
 
