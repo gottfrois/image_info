@@ -4,7 +4,7 @@ Now only fetch partial image data to compute its size and type.
 
 Thanks to [vdaubry](https://github.com/vdaubry) the gem now uses typhoeus
 stream capability to fetch images and get its size and type, aborting the
-request if necessary. Make sure to use typhoeus `v0.7.3` in order to benefit
+request if necessary. Make sure to use typhoeus `>= 0.7.3` in order to benefit
 from this update since there was an issue with previous typhoeus version when
 aborting ongoing requests.
 
