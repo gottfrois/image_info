@@ -55,6 +55,26 @@ describe ImageInfo::Parser do
 
     end
 
+    context 'partial image with not enough data' do
+
+      let(:data) { File.open(File.expand_path('../../fixtures/upload_bird.jpg', __FILE__)).read(50) }
+
+      it { expect { call }.not_to change { image.type } }
+      it { expect { call }.not_to change { image.size } }
+      it { expect(call).to be_falsy }
+
+    end
+    
+    context 'partial image with enough data' do
+
+      let(:data) { File.open(File.expand_path('../../fixtures/upload_bird.jpg', __FILE__)).read(400) }
+
+      it { expect { call }.to change { image.type }.to eq(:jpeg) }
+      it { expect { call }.to change { image.size }.to eq([775, 525]) }
+      it { expect(call).to be_truthy }
+
+    end
+
   end
 
 end

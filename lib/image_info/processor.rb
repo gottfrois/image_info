@@ -2,6 +2,7 @@ require 'typhoeus'
 
 require 'image_info/image'
 require 'image_info/parser'
+require 'image_info/null_parser'
 require 'image_info/request_handler'
 
 module ImageInfo
