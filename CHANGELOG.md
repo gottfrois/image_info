@@ -1,3 +1,7 @@
+* 1.1.2
+
+- Fix issues with schemaless uri (ex: `//foo.com`)
+
 * 1.1.1
 
 Now only fetch partial image data to compute its size and type.
