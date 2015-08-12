@@ -47,7 +47,7 @@ describe ImageInfo::Image do
 
     context 'when uri is not valid' do
 
-      let(:uri) { 'foo.png' }
+      let(:uri) { 'foo' }
 
       it { expect(valid?).to eq(false) }
 

@@ -39,7 +39,7 @@ describe ImageInfo::Processor do
     context 'with many valid urls' do
 
       let(:uri1) { 'http://foo.com' }
-      let(:uri2) { 'http://bar.com' }
+      let(:uri2) { '//bar.com' }
       let(:urls) { [uri1, uri2] }
       let!(:stub1) { stub_request(:get, uri1).to_return(body: '', status: 200) }
       let!(:stub2) { stub_request(:get, uri2).to_return(body: '', status: 200) }
