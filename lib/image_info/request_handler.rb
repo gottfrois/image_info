@@ -21,6 +21,8 @@ module ImageInfo
 
     def found_image_info?(chunk)
       ::ImageInfo::Parser.new(image, chunk).call
+    rescue
+      false
     end
   end
 end
