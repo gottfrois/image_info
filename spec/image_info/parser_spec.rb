@@ -64,7 +64,7 @@ describe ImageInfo::Parser do
       it { expect(call).to be_falsy }
 
     end
-    
+
     context 'partial image with enough data' do
 
       let(:data) { File.open(File.expand_path('../../fixtures/upload_bird.jpg', __FILE__)).read(400) }
