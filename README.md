@@ -60,6 +60,8 @@ images.map &:type
 
 ## Configuration
 
+### Concurrency
+
 You can configure the `max_concurrency` value (20 by default) used to fetch images in parallel:
 
 ```ruby
@@ -73,6 +75,26 @@ or at runtime:
 ```ruby
 ImageInfo.from('http://foo.com/foo.png', max_concurrency: 10)
 ```
+
+### Image Size Limit
+
+You can set a `max_image_size` for which the connection will be aborted
+if reached.
+
+```ruby
+ImageInfo.configure do |config|
+  config.max_image_size = 5 * 1024 * 1024 # 5Mb
+end
+```
+
+or at runtime:
+
+```ruby
+ImageInfo.from('http://foo.com/foo.png', max_image_size: -1)
+```
+
+Setting the value to zero or a negative number simply disable the limit.
+By default it is set to `-1`.
 
 ## Development
 
@@ -88,4 +110,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/gottfr
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-

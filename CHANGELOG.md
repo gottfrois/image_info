@@ -1,25 +1,53 @@
-* 1.1.2
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+### Added
+
+- Allows to set a maximum image size in bytes to fetch. The HTTP connection
+will be aborted as soon as the max size is reached. Setting a value to
+`zero` or a negative number will deactivate this feature. Default to `-1` not
+to break retro compatibility.
+
+### Fixed
+
+- Partial image loading was sometime yielding empty results. Image size and
+type was not set properly in this case.
+- `max_concurrency` option was not properly set by default.
+- Locks dependencies to their major version.
+  - `typhoeus` is now locked to `~> 1.0`
+  - `image_size` is now locked to `~> 2.0`
+
+## [1.1.2] - 2015-08-12
+### Fixed
 
 - Fix issues with schemaless uri (ex: `//foo.com`)
 
-* 1.1.1
+## [1.1.1] - 2015-08-11
+### Adds
 
-Now only fetch partial image data to compute its size and type.
+- Adds image partial loading and abort the connection as soon as image
+size and type has been found.
 
-Thanks to [vdaubry](https://github.com/vdaubry) the gem now uses typhoeus
-stream capability to fetch images and get its size and type, aborting the
-request if necessary. Make sure to use typhoeus `>= 0.7.3` in order to benefit
-from this update since there was an issue with previous typhoeus version when
-aborting ongoing requests.
+### Fixed
 
-Fixes [#1](https://github.com/gottfrois/image_info/issues/1)
+- Fixes URL encoding issues.
 
-Also fix URL encoding issues.
+## [1.1.0] - 2015-07-19
+### Adds
 
-* 1.1.0
+- Introduces `width` and `height` method.
 
-- Introduces `width` and `height` method. Fixes [https://github.com/gottfrois/image_info/issues/2](https://github.com/gottfrois/image_info/issues/2)
+## [1.0.0] - 2015-07-19
+### Adds
 
-* 1.0.0
+- First release 🎆
 
-- First release
+[Unreleased]: https://github.com/gottfrois/image_info/compare/v1.1.3...HEAD
+[1.1.2]: https://github.com/gottfrois/image_info/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/gottfrois/image_info/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/gottfrois/image_info/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/gottfrois/image_info/releases/tag/v1.0.0

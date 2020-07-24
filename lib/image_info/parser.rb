@@ -1,4 +1,5 @@
 require 'image_size'
+require 'image_info/null_parser'
 
 module ImageInfo
   class Parser
@@ -25,13 +26,12 @@ module ImageInfo
     def set_image_type
       image.type = parser.format
     end
-    
-    private
-    
+
     def parser
       @parser ||= ::ImageSize.new(data)
-    rescue ImageSize::FormatError
+    rescue ::ImageSize::FormatError, NoMethodError
       @parser ||= ::ImageInfo::NullParser.new
     end
+
   end
 end

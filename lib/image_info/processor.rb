@@ -2,7 +2,6 @@ require 'typhoeus'
 
 require 'image_info/image'
 require 'image_info/parser'
-require 'image_info/null_parser'
 require 'image_info/request_handler'
 
 module ImageInfo
@@ -10,7 +9,7 @@ module ImageInfo
 
     attr_reader :images, :options
 
-    def initialize(urls, options = {})
+    def initialize(urls, options = { max_concurrency: ::ImageInfo.config.max_concurrency })
       @images  = Array(urls).map { |uri| ::ImageInfo::Image.new(uri) }.keep_if(&:valid?)
       @options = options
     end
@@ -25,7 +24,7 @@ module ImageInfo
     private
 
     def hydra
-      @hydra ||= ::Typhoeus::Hydra.new(max_concurrency: options[:max_concurrency])
+      @hydra ||= ::Typhoeus::Hydra.new(max_concurrency: options[:max_concurrency].to_i)
     end
 
   end
