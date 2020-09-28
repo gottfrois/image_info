@@ -3,7 +3,6 @@ require 'image_info/null_parser'
 
 module ImageInfo
   class Parser
-
     attr_reader :image, :data
 
     def initialize(image, data)
@@ -32,6 +31,5 @@ module ImageInfo
     rescue ::ImageSize::FormatError, NoMethodError
       @parser ||= ::ImageInfo::NullParser.new
     end
-
   end
 end

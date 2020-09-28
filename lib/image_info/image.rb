@@ -2,7 +2,6 @@ require 'addressable/uri'
 
 module ImageInfo
   class Image
-
     attr_reader :uri
     attr_accessor :width, :height, :type
 
@@ -23,12 +22,8 @@ module ImageInfo
       !!uri.host
     end
 
-    private
-
     class NullUri
-      def host
-      end
+      def host; end
     end
-
   end
 end

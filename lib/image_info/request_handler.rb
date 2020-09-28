@@ -2,7 +2,6 @@ require 'stringio'
 
 module ImageInfo
   class RequestHandler
-
     attr_reader :image, :buffer
 
     def initialize(image)
@@ -28,6 +27,7 @@ module ImageInfo
 
     def max_image_size_reached?
       return false if max_image_size <= 0
+
       buffer.size > max_image_size
     end
 
