@@ -1,4 +1,4 @@
-require 'uri'
+require 'addressable/uri'
 
 module ImageInfo
   class Image
@@ -7,10 +7,11 @@ module ImageInfo
     attr_accessor :width, :height, :type
 
     def initialize(uri)
-      @uri        = ::URI.parse(::URI.encode(uri.to_s))
+      @uri        = ::Addressable::URI.parse(uri.to_s)
       @uri.scheme = 'http'  unless @uri.scheme
       @uri.port   = 80      unless @uri.port
-    rescue ::URI::InvalidURIError
+      @uri.normalize!
+    rescue ::Addressable::URI::InvalidURIError
       @uri = NullUri.new
     end
 

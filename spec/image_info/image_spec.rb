@@ -31,11 +31,11 @@ describe ImageInfo::Image do
 
     context 'trys to fix invalid characters' do
 
-      let(:uri) { 'http://karrierebibel.de/wp-content/uploads/2015/03/7_Todsünden_der_Jobsuche_sauer_wütend.jpg' }
+      let(:url) { 'http://karrierebibel+fr.de/wp-content/uploads/2015/03/7_Todsünden_der_Jobsuche_sauer_wütend.jpg' }
+      let(:uri) { Addressable::URI.parse('http://karrierebibel+fr.de/wp-content/uploads/2015/03/7_Tods%C3%BCnden_der_Jobsuche_sauer_w%C3%BCtend.jpg') }
 
       it { expect(instance.valid?).to eq(true) }
-
-      it { expect(instance.uri).to eq(URI.parse 'http://karrierebibel.de/wp-content/uploads/2015/03/7_Tods%C3%BCnden_der_Jobsuche_sauer_w%C3%BCtend.jpg') }
+      it { expect(instance.uri).to eq(uri) }
 
     end
 
