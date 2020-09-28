@@ -6,7 +6,6 @@ require 'image_info/request_handler'
 
 module ImageInfo
   class Processor
-
     attr_reader :images, :options
 
     def initialize(urls, options = { max_concurrency: ::ImageInfo.config.max_concurrency })
@@ -26,6 +25,5 @@ module ImageInfo
     def hydra
       @hydra ||= ::Typhoeus::Hydra.new(max_concurrency: options[:max_concurrency].to_i)
     end
-
   end
 end

@@ -1,0 +1,19 @@
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+AllCops:
+  NewCops: disable

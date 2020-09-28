@@ -19,5 +19,4 @@ module ImageInfo
   def self.from(urls, options = { max_concurrency: config.max_concurrency })
     ::ImageInfo::Processor.new(urls, options).process
   end
-
 end

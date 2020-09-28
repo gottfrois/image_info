@@ -1,9 +1,8 @@
 require 'spec_helper'
 
 describe ImageInfo do
-
   let(:url) { 'http://foo.com/ad.gif' }
-  let(:data) { File.read(File.expand_path('../fixtures/ad.gif', __FILE__)) }
+  let(:data) { File.read(File.expand_path('fixtures/ad.gif', __dir__)) }
 
   before do
     stub_request(:get, url).to_return(body: data, status: 200)
@@ -15,5 +14,4 @@ describe ImageInfo do
   it { expect(image.height).to eq(250) }
   it { expect(image.size).to eq([300, 250]) }
   it { expect(image.type).to eq(:gif) }
-
 end

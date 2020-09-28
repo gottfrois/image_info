@@ -1,13 +1,10 @@
 require 'spec_helper'
 
 describe ImageInfo::Processor do
-
   let(:instance) { described_class.new(urls) }
 
   describe '#process' do
-
     context 'with one valid url' do
-
       let(:urls) { 'http://foo.com' }
       let!(:stub) { stub_request(:get, urls).to_return(body: '', status: 200) }
 
@@ -19,11 +16,9 @@ describe ImageInfo::Processor do
       it { expect(instance.process.count).to eq(1) }
       it { expect(instance.process.first).to be_a(ImageInfo::Image) }
       it { expect(instance.process.first).to be_valid }
-
     end
 
     context 'with one invalid url' do
-
       let(:urls) { 'foo' }
       let!(:stub) { stub_request(:get, urls).to_return(body: '', status: 200) }
 
@@ -33,11 +28,9 @@ describe ImageInfo::Processor do
       end
 
       it { expect(instance.process.count).to eq(0) }
-
     end
 
     context 'with many valid urls' do
-
       let(:uri1) { 'http://foo.com' }
       let(:uri2) { '//bar.com' }
       let(:urls) { [uri1, uri2] }
@@ -55,11 +48,9 @@ describe ImageInfo::Processor do
       it { expect(instance.process.last).to be_a(ImageInfo::Image) }
       it { expect(instance.process.first).to be_valid }
       it { expect(instance.process.last).to be_valid }
-
     end
 
     context 'with some invalid urls' do
-
       let(:uri1) { 'http://foo.com' }
       let(:uri2) { 'bar' }
       let(:urls) { [uri1, uri2] }
@@ -75,9 +66,6 @@ describe ImageInfo::Processor do
       it { expect(instance.process.count).to eq(1) }
       it { expect(instance.process.first).to be_a(ImageInfo::Image) }
       it { expect(instance.process.first).to be_valid }
-
     end
-
   end
-
 end
