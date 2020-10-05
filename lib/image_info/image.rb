@@ -7,8 +7,7 @@ module ImageInfo
 
     def initialize(uri)
       @uri        = ::Addressable::URI.parse(uri.to_s)
-      @uri.scheme = 'http'  unless @uri.scheme
-      @uri.port   = 80      unless @uri.port
+      @uri.scheme = 'http' unless @uri.scheme
       @uri.normalize!
     rescue ::Addressable::URI::InvalidURIError
       @uri = NullUri.new
