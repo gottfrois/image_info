@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2020-10-06
+### Fixed
+
+- Fix an issue when we tried to explicitely set the URI port number
+
 ## [1.2.1] - 2020-09-28
 ### Added
 
@@ -57,7 +62,8 @@ size and type has been found.
 
 - First release 🎆
 
-[Unreleased]: https://github.com/gottfrois/image_info/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/gottfrois/image_info/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/gottfrois/image_info/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/gottfrois/image_info/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/gottfrois/image_info/compare/v1.1.2...v1.2.0
 [1.1.2]: https://github.com/gottfrois/image_info/compare/v1.1.1...v1.1.2
