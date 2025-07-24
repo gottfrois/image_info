@@ -22,12 +22,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'addressable', '~> 2.0'
-  spec.add_dependency 'image_size', '~> 2.0'
-  spec.add_dependency 'typhoeus', '~> 1.0'
+  spec.add_dependency 'addressable'
+  spec.add_dependency 'image_size'
+  spec.add_dependency 'typhoeus'
+  spec.add_dependency 'logger'
 
-  spec.add_development_dependency 'bundler', '~> 1.10'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'webmock'
